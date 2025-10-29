@@ -132,13 +132,13 @@
                                     <tr th:each="mov : ${movements}">
                                         <td th:text="${mov.concept}"></td>
 
-                                        <td th:text="${mov.type == MovementType.INCOME ? '+' : '-'} + ${#numbers.formatDecimal(mov.amount, 1, 'POINT', 2, 'COMMA')}"
-                                            th:classappend="${mov.type == MovementType.INCOME ? 'text-success' : 'text-danger'}">
+                                        <td th:text="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? '+' : '-'} + ${#numbers.formatDecimal(mov.amount, 1, 'POINT', 2, 'COMMA')}"
+                                            th:classappend="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'text-success' : 'text-danger'}">
                                         </td>
 
                                         <td>
-                                                <span th:text="${mov.type == MovementType.INCOME ? 'Ingreso' : 'Gasto'}"
-                                                      th:classappend="${mov.type == MovementType.INCOME ? 'badge badge-success' : 'badge badge-danger'}">
+                                                <span th:text="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'Ingreso' : 'Gasto'}"
+                                                      th:classappend="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'badge badge-success' : 'badge badge-danger'}">
                                                 </span>
                                         </td>
 
