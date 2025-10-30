@@ -15,12 +15,12 @@ public class NewMovementUseCase {
     }
 
     public void execute(NewMovementRequest request) {
-        Movement movement = new Movement();
-
-        movement.setConcept(request.concept());
-        movement.setAmount(request.amount());
-        movement.setDate(request.date());
-        movement.setType(request.type());
+        Movement movement = new Movement(
+                request.concept(),
+                request.amount(),
+                request.date(),
+                request.type()
+        );
 
         movementRepository.save(movement);
     }

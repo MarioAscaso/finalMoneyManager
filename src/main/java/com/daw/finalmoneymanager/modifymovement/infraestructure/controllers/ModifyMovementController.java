@@ -6,6 +6,7 @@ import com.daw.finalmoneymanager.shared.domain.Movement;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,14 +22,14 @@ public class ModifyMovementController {
     }
 
     @GetMapping("/movements/modify/{id}")
-    public String showEditForm(@PathVariable Long id, Model model) {
+    public String showModifyForm(@PathVariable Long id, Model model) {
         Movement movement = getMovementByIdApp.execute(id);
         model.addAttribute("movement", movement);
         return "modify-movement";
     }
 
-    @PostMapping("/movements/edit")
-    public String modifyMovement(Movement movement) {
+    @PostMapping("/movements/modify")
+    public String modifyMovement(@ModelAttribute Movement movement) {
         modifyMovementApp.execute(movement);
         return "redirect:/";
     }
