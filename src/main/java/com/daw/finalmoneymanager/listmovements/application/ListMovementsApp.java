@@ -1,10 +1,9 @@
 package com.daw.finalmoneymanager.listmovements.application;
 
 import com.daw.finalmoneymanager.listmovements.domain.ListMovementsUseCase;
-import com.daw.finalmoneymanager.shared.domain.Movement;
+import com.daw.finalmoneymanager.listmovements.domain.MovementDashboard;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class ListMovementsApp {
@@ -15,7 +14,7 @@ public class ListMovementsApp {
         this.listMovementsUseCase = listMovementsUseCase;
     }
 
-    public List<Movement> execute() {
+    public MovementDashboard execute() {
         return listMovementsUseCase.execute();
     }
 }

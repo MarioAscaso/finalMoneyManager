@@ -8,6 +8,22 @@
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+
+    <style>
+        .content-wrapper {
+            background: repeating-linear-gradient(
+                90deg, /* Rayas verticales */
+                #CE2C3D, /* Rojo Atleti */
+                #CE2C3D 30px,
+                #FFFFFF 30px,
+                #FFFFFF 60px
+            );
+            background-attachment: fixed;
+        }
+        .card, .small-box {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -29,7 +45,6 @@
                             <div class="card-header">
                                 <h3 class="card-title">Añadir Nuevo Movimiento</h3>
                             </div>
-
                             <form th:action="@{/movements/new}" method="post">
                                 <div class="card-body">
                                     <div class="form-group">
@@ -156,6 +171,7 @@
                                                     <i class="fas fa-trash"></i> Eliminar
                                                 </button>
                                             </form>
+
                                         </td>
                                     </tr>
                                     <tr th:if="${#lists.isEmpty(movements)}">
@@ -175,6 +191,8 @@
     </footer>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 </body>
 </html>

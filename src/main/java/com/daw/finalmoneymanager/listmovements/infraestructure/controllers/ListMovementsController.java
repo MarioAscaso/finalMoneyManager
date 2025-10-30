@@ -1,12 +1,10 @@
 package com.daw.finalmoneymanager.listmovements.infraestructure.controllers;
 
 import com.daw.finalmoneymanager.listmovements.application.ListMovementsApp;
-import com.daw.finalmoneymanager.shared.domain.Movement;
+import com.daw.finalmoneymanager.listmovements.domain.MovementDashboard;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 @Controller
 public class ListMovementsController {
@@ -19,8 +17,13 @@ public class ListMovementsController {
 
     @GetMapping("/")
     public String listMovements(Model model) {
-        List<Movement> movements = listMovementsApp.execute();
-        model.addAttribute("movements", movements);
+        MovementDashboard dashboardData = listMovementsApp.execute();
+
+        model.addAttribute("movements", dashboardData.getMovements());
+        model.addAttribute("totalIngresos", dashboardData.getTotalIngresos());
+        model.addAttribute("totalGastos", dashboardData.getTotalGastos());
+        model.addAttribute("balanceTotal", dashboardData.getBalanceTotal());
+
         return "index";
     }
 }
