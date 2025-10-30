@@ -137,9 +137,9 @@
                                         </td>
 
                                         <td>
-                                                <span th:text="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'Ingreso' : 'Gasto'}"
-                                                      th:classappend="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'badge badge-success' : 'badge badge-danger'}">
-                                                </span>
+                                            <span th:text="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'Ingreso' : 'Gasto'}"
+                                                  th:classappend="${mov.type == T(com.daw.finalmoneymanager.shared.domain.TypeMovement).INCOME ? 'badge badge-success' : 'badge badge-danger'}">
+                                            </span>
                                         </td>
 
                                         <td th:text="${#temporals.format(mov.date, 'dd-MM-yyyy')}"></td>
@@ -170,7 +170,6 @@
             </div>
         </section>
     </div>
-
     <footer class="main-footer text-center mt-5">
         <strong>Copyright &copy; 2024-2025.</strong> All rights reserved.
     </footer>
