@@ -9,4 +9,5 @@ public interface MovementRepository {
     Optional<Movement> findById(Long id);
     List<Movement> findAll();
     void deleteById(Long id);
+    List<Movement> findAllByOrderByDateDesc();
 }

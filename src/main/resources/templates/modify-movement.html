@@ -48,7 +48,8 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label for="date">Fecha</label>
-                                                <input type="date" class="form-control" id="date" th:field="*{date}" required>
+                                                <input type="date" class="form-control" id="date" name="date"
+                                                       th:value="${#temporals.format(movement.date, 'yyyy-MM-dd')}" required>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
