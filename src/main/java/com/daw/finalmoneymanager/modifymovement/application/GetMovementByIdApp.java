@@ -14,7 +14,6 @@ public class GetMovementByIdApp {
     }
 
     public Movement execute(Long id) {
-        return getMovementByIdUseCase.execute(id)
-                .orElseThrow(() -> new RuntimeException("Movement not found with id: " + id));
+        return getMovementByIdUseCase.execute(id).orElseThrow(() -> new RuntimeException("Movement not found with id: " + id));
     }
 }

@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.deletemovement.infraestructure.controllers;
+package com.daw.finalmoneymanager.deletemovement.infrastructure.controllers;
 
 import com.daw.finalmoneymanager.deletemovement.application.DeleteMovementApp;
 import org.springframework.stereotype.Controller;
