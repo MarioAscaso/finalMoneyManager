@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.notifications.infraestructure;
+package com.daw.finalmoneymanager.notifications.infrastructure;
 
 import com.daw.finalmoneymanager.notifications.domain.BalanceNotifier;
 import org.springframework.beans.factory.annotation.Value;

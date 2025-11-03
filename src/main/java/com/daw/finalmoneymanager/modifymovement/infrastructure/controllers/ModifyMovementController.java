@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.modifymovement.infraestructure.controllers;
+package com.daw.finalmoneymanager.modifymovement.infrastructure.controllers;
 
 import com.daw.finalmoneymanager.modifymovement.application.GetMovementByIdApp;
 import com.daw.finalmoneymanager.modifymovement.application.ModifyMovementApp;

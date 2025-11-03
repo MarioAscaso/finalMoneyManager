@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.newmovement.infraestructure.controllers;
+package com.daw.finalmoneymanager.newmovement.infrastructure.controllers;
 
 import com.daw.finalmoneymanager.newmovement.application.NewMovementApp;
 import com.daw.finalmoneymanager.newmovement.application.NewMovementRequest;

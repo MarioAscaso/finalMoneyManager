@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.shared.infraestructure;
+package com.daw.finalmoneymanager.shared.infrastructure;
 
 import com.daw.finalmoneymanager.shared.domain.Movement;
 import com.daw.finalmoneymanager.shared.domain.MovementRepository;
