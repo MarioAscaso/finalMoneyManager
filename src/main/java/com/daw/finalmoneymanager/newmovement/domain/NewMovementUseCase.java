@@ -16,10 +16,10 @@ public class NewMovementUseCase {
 
     public void execute(NewMovementRequest request) {
         Movement movement = new Movement(
-                request.concept(),
-                request.amount(),
-                request.date(),
-                request.type()
+                request.getConcept(),
+                request.getAmount(),
+                request.getDate(),
+                request.getType()
         );
 
         movementRepository.save(movement);

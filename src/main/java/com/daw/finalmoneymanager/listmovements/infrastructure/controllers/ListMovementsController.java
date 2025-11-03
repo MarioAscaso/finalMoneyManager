@@ -1,4 +1,4 @@
-package com.daw.finalmoneymanager.listmovements.infraestructure.controllers;
+package com.daw.finalmoneymanager.listmovements.infrastructure.controllers;
 
 import com.daw.finalmoneymanager.listmovements.application.ListMovementsApp;
 import com.daw.finalmoneymanager.listmovements.domain.MovementSummary;

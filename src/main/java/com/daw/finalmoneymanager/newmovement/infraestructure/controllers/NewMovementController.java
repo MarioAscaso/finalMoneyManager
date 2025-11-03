@@ -1,14 +1,10 @@
 package com.daw.finalmoneymanager.newmovement.infraestructure.controllers;
 
-import com.daw.finalmoneymanager.shared.domain.TypeMovement;
-import com.daw.finalmoneymanager.newmovement.application.NewMovementRequest;
 import com.daw.finalmoneymanager.newmovement.application.NewMovementApp;
+import com.daw.finalmoneymanager.newmovement.application.NewMovementRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Controller
 public class NewMovementController {
@@ -20,13 +16,7 @@ public class NewMovementController {
     }
 
     @PostMapping("/movements/new")
-    public String createMovement(
-            @RequestParam String concept,
-            @RequestParam BigDecimal amount,
-            @RequestParam LocalDate date,
-            @RequestParam TypeMovement type) {
-
-        NewMovementRequest request = new NewMovementRequest(concept, amount, date, type);
+    public String newMovement(@ModelAttribute NewMovementRequest request) {
         newMovementApp.execute(request);
         return "redirect:/";
     }
