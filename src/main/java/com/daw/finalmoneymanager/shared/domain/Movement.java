@@ -2,13 +2,11 @@ package com.daw.finalmoneymanager.shared.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-//@NoArgsConstructor
 @Entity
 @Table(name = "movements")
 public class Movement {
@@ -24,47 +22,7 @@ public class Movement {
     @Enumerated(EnumType.STRING)
     private TypeMovement type;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getConcept() {
-        return concept;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public TypeMovement getType() {
-        return type;
-    }
-
-    public void setConcept(String concept) {
-        this.concept = concept;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        if (amount.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("LA CANTIDAD NO PUEDE SER NEGATIVA");
-        }
-        this.amount = amount;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public void setType(TypeMovement type) {
-        this.type = type;
-    }
-
-    protected Movement() {
-    }
+    protected Movement() {}
 
     public Movement(String concept, BigDecimal amount, LocalDate date, TypeMovement type) {
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
@@ -73,6 +31,38 @@ public class Movement {
         this.concept = concept;
         this.amount = amount;
         this.date = date;
+        this.type = type;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public String getConcept() {
+        return concept;
+    }
+    public BigDecimal getAmount() {
+        return amount;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+    public TypeMovement getType() {
+        return type;
+    }
+
+    public void setConcept(String concept) {
+        this.concept = concept;
+    }
+    public void setAmount(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("LA CANTIDAD NO PUEDE SER NEGATIVA");
+        }
+        this.amount = amount;
+    }
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    public void setType(TypeMovement type) {
         this.type = type;
     }
 }
