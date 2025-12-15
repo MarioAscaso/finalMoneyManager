@@ -4,6 +4,7 @@ import com.daw.finalmoneymanager.modifymovement.domain.ModifyMovementUseCase;
 import com.daw.finalmoneymanager.notifications.application.NotifyNegativeBalanceApp;
 import com.daw.finalmoneymanager.shared.domain.Movement;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ModifyMovementApp {
@@ -16,8 +17,8 @@ public class ModifyMovementApp {
         this.notifyNegativeBalanceApp = notifyNegativeBalanceApp;
     }
 
-    public void execute(Movement movement) {
-        modifyMovementUseCase.execute(movement);
+    public void execute(Movement movement, MultipartFile image) {
+        modifyMovementUseCase.execute(movement, image);
         notifyNegativeBalanceApp.execute();
     }
 }
