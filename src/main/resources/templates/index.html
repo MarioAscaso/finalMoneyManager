@@ -30,7 +30,7 @@
                                 <h3 class="card-title">Añadir Nuevo Movimiento</h3>
                             </div>
 
-                            <form th:action="@{/movements/new}" method="post">
+                            <form th:action="@{/movements/new}" method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="concept">Concepto</label>
@@ -61,6 +61,17 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="image">Adjuntar Comprobante</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="image" name="image">
+                                                <label class="custom-file-label" for="image">Seleccionar archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Guardar Movimiento</button>
@@ -128,7 +139,7 @@
                                         <th>Cantidad</th>
                                         <th>Tipo</th>
                                         <th>Fecha</th>
-                                        <th>Acciones</th>
+                                        <th>Adjunto</th> <th>Acciones</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -148,6 +159,14 @@
                                         <td th:text="${#temporals.format(mov.date, 'dd-MM-yyyy')}"></td>
 
                                         <td>
+                                            <a th:if="${mov.imageName != null}"
+                                               th:href="@{'/uploads/' + ${mov.imageName}}"
+                                               target="_blank" class="btn btn-info btn-sm">
+                                                <i class="fas fa-paperclip"></i> Ver
+                                            </a>
+                                        </td>
+
+                                        <td>
                                             <a th:href="@{/movements/modify/{id}(id=${mov.id})}"
                                                class="btn btn-warning btn-sm mr-1">
                                                 <i class="fas fa-edit"></i> Modificar
@@ -162,8 +181,7 @@
                                         </td>
                                     </tr>
                                     <tr th:if="${#lists.isEmpty(movements)}">
-                                        <td colspan="5" class="text-center">No hay movimientos registrados.</td>
-                                    </tr>
+                                        <td colspan="6" class="text-center">No hay movimientos registrados.</td> </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -179,5 +197,12 @@
 
 </div>
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
+<script>
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+        var fileName = document.getElementById("image").files[0].name;
+        var nextSibling = e.target.nextElementSibling;
+        nextSibling.innerText = fileName;
+    });
+</script>
 </body>
 </html>
