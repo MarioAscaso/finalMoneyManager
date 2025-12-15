@@ -18,13 +18,14 @@ public class Movement {
     private String concept;
     private BigDecimal amount;
     private LocalDate date;
+    private String imageName;
 
     @Enumerated(EnumType.STRING)
     private TypeMovement type;
 
     protected Movement() {}
 
-    public Movement(String concept, BigDecimal amount, LocalDate date, TypeMovement type) {
+    public Movement(String concept, BigDecimal amount, LocalDate date, TypeMovement type, String imageName) {
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("La cantidad no puede ser negativa");
         }
@@ -32,6 +33,7 @@ public class Movement {
         this.amount = amount;
         this.date = date;
         this.type = type;
+        this.imageName = imageName;
     }
 
     public Long getId() {
@@ -49,6 +51,7 @@ public class Movement {
     public TypeMovement getType() {
         return type;
     }
+    public String getImageName() {return imageName; }
 
     public void setConcept(String concept) {
         this.concept = concept;
@@ -65,4 +68,5 @@ public class Movement {
     public void setType(TypeMovement type) {
         this.type = type;
     }
+    public void setImageName(){this.imageName = imageName; }
 }

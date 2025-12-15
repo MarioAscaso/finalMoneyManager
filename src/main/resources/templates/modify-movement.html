@@ -29,9 +29,10 @@
                             <h3 class="card-title">Editando Movimiento</h3>
                         </div>
 
-                            <form th:action="@{/movements/modify}" th:object="${movement}" method="post">
+                            <form th:action="@{/movements/modify}" th:object="${movement}" method="post" enctype="multipart/form-data">
 
                                 <input type="hidden" th:field="*{id}"/>
+                                <input type="hidden" th:field="*{imageName}"/>
 
                                 <div class="card-body">
                                     <div class="form-group">
@@ -62,6 +63,24 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div th:if="*{imageName != null and #strings.length(movement.imageName) > 0}" class="form-group">
+                                        <label>Adjunto Actual</label>:
+                                        <a th:href="@{'/uploads/' + *{imageName}}" target="_blank">
+                                            <i class="fas fa-paperclip"></i> [[*{imageName}]] (Ver)
+                                        </a>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="image">Reemplazar Comprobante</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="image" name="image">
+                                                <label class="custom-file-label" for="image">Seleccionar nuevo archivo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-warning">Guardar Cambios</button>
@@ -82,5 +101,12 @@
 
 </div>
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
+<script>
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+        var fileName = document.getElementById("image").files[0].name;
+        var nextSibling = e.target.nextElementSibling;
+        nextSibling.innerText = fileName;
+    });
+</script>
 </body>
 </html>
